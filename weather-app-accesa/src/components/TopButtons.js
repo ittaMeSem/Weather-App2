@@ -29,10 +29,11 @@ function TopButtons({ setQuery }) {
       {cities.map((city) => (
         <button
           key={city.id}
-          className="text-white text-lg font-medium"
+          className="text-white text-lg font-medium transition duration-300"
           onClick={() => setQuery({ q: city.title })}
         >
           {city.title}
+          <span className=" max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5"></span>
         </button>
       ))}
     </div>
