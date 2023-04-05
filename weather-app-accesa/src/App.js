@@ -8,6 +8,7 @@ import getFormattedWeatherData from "./services/weatherAPI";
 import { useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import BurgerMenu from "react-burger-menu";
 
 function App() {
   const [query, setQuery] = useState({ q: "cluj-napoca" });
@@ -32,29 +33,36 @@ function App() {
   }, [query, units]);
 
   const formatBackground = () => {
-    if (!weather) return "from-cyan-700 to-blue-700";
+    if (!weather) return "from-cyan-600 to-blue-400";
     const threshold = units === "metric" ? 20 : 60;
-    if (weather.temp <= threshold) return "from-cyan-700 to-blue-700";
+    if (weather.temp <= threshold) return "from-cyan-600 to-blue-400";
 
     return "from-yellow-700 to-orange-700";
   };
 
   return (
-    <div
-      className={`rounded-xl mx-auto max-w-screen-md mt-4 mb-4 py-5 px-32 bg-gradient-to-br from-cyan-700 to-blue-700 h-fit shadow-xl shadow-gray-400 ${formatBackground()}`}
-    >
-      <TopButtons setQuery={setQuery} />
-      <Inputs setQuery={setQuery} units={units} setUnits={setUnits} />
+    <div className="bg-gradient-to-b from-cyan-600 to-blue-400 p-5">
+      <div
+        className={`rounded-xl mx-auto max-w-screen-md py-5 px-32 bg-gradient-to-b from-cyan-500 to-blue-600 h-fit drop-shadow-xl shadow-gray-400 ${formatBackground()}`}
+      >
+        <TopButtons setQuery={setQuery} />
+        {/* <Favorites
+          favorites={favorites}
+          setFavorites={setFavorites}
+          query={query}
+        /> */}
+        <Inputs setQuery={setQuery} units={units} setUnits={setUnits} />
 
-      {weather && (
-        <div>
-          <TimeAndLocation weather={weather} />
-          <TemperatureAndDetails weather={weather} />
-          <Forecast title="Hourly forecast" items={weather.hourly} />
-          <Forecast title="Daily forecast" items={weather.daily} />
-        </div>
-      )}
-      <ToastContainer autoClose={5000} theme="colored" newestOnTop={true} />
+        {weather && (
+          <div>
+            <TimeAndLocation weather={weather} />
+            <TemperatureAndDetails weather={weather} />
+            <Forecast title="Hourly forecast" items={weather.hourly} />
+            <Forecast title="Daily forecast" items={weather.daily} />
+          </div>
+        )}
+        <ToastContainer autoClose={3000} theme="colored" newestOnTop={true} />
+      </div>
     </div>
   );
 }

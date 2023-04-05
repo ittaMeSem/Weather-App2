@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { UilSearch, UilLocationPoint } from "@iconscout/react-unicons";
+import { UilSearch, UilLocationPoint, UilStar } from "@iconscout/react-unicons";
 // eslint-disable-next-line no-unused-vars
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -35,6 +35,10 @@ function Inputs({ setQuery, units, setUnits }) {
   return (
     <div className="flex flex-row justify-center my-6">
       <div className="flex flex-row w-3/4 items-center justify-center space-x-4">
+        <UilStar
+          size={50}
+          className="text-white fill-yellow-300 stroke-yellow-300 cursor-pointer"
+        />
         <input
           value={city}
           onChange={(e) => setCity(e.currentTarget.value)}
@@ -43,12 +47,12 @@ function Inputs({ setQuery, units, setUnits }) {
           className="text-xl font-light p-2 w-full shadow-xl focus:outline-none capitalize placeholder:lowercase rounded-xl"
         />
         <UilSearch
-          size={25}
+          size={50}
           className="text-white cursor-pointer transition ease-out hover:scale-125"
           onClick={handleSearchClick}
         />
         <UilLocationPoint
-          size={25}
+          size={50}
           className="text-white cursor-pointer transition ease-out hover:scale-125"
           onClick={handleLocationClick}
         />
