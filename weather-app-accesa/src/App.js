@@ -9,7 +9,6 @@ import { useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-
 function App() {
   const [query, setQuery] = useState({ q: "cluj-napoca" });
   const [units, setUnits] = useState("metric");
@@ -42,23 +41,21 @@ function App() {
   };
 
   return (
-    <div className="bg-gradient-to-b from-cyan-600 to-blue-400 p-5">
-      <div
-        className={`rounded-xl mx-auto max-w-screen-md py-5 px-32 bg-gradient-to-b from-cyan-500 to-blue-600 h-fit drop-shadow-xl shadow-gray-400 ${formatBackground()}`}
-      >
-        <TopButtons setQuery={setQuery} />
-        <Inputs setQuery={setQuery} units={units} setUnits={setUnits} />
+    <div
+      className={`rounded-2xl mx-auto max-w-screen-md py-5 px-32 mt-10 bg-gradient-to-b from-cyan-500 to-blue-600 drop-shadow-xl shadow-gray-600 ${formatBackground()}`}
+    >
+      <TopButtons setQuery={setQuery} />
+      <Inputs setQuery={setQuery} units={units} setUnits={setUnits} />
 
-        {weather && (
-          <div>
-            <TimeAndLocation weather={weather} />
-            <TemperatureAndDetails weather={weather} />
-            <Forecast title="Hourly forecast" items={weather.hourly} />
-            <Forecast title="Daily forecast" items={weather.daily} />
-          </div>
-        )}
-        <ToastContainer autoClose={3000} theme="colored" newestOnTop={true} />
-      </div>
+      {weather && (
+        <div>
+          <TimeAndLocation weather={weather} />
+          <TemperatureAndDetails weather={weather} />
+          <Forecast title="Hourly forecast" items={weather.hourly} />
+          <Forecast title="Daily forecast" items={weather.daily} />
+        </div>
+      )}
+      <ToastContainer autoClose={3000} theme="colored" newestOnTop={true} />
     </div>
   );
 }
