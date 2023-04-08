@@ -42,7 +42,7 @@ function TemperatureAndDetails({
           <div className="flex font-light text-sm items-center justify-center">
             <UilTear size={18} className="mr-1" />
             Humidity:
-            <span className="font-medium ml-1">{`${humidity.toFixed()} %`}</span>
+            <span className="font-medium ml-1">{`${humidity.toFixed()}%`}</span>
           </div>
 
           <div className="flex font-light text-sm items-center justify-center">

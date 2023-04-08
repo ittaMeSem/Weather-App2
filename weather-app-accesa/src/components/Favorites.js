@@ -1,5 +1,6 @@
 import { useState } from "react";
 
+
 function Favorite({ location, onRemove }) {
   const [isFavorite, setIsFavorite] = useState(true);
 

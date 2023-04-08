@@ -13,7 +13,7 @@ function Inputs({ setQuery, units, setUnits }) {
   };
 
   const handleSearchClick = () => {
-    if (city !== "") setQuery({ q: city });
+    setQuery({ q: city });
   };
 
   const handleLocationClick = () => {
