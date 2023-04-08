@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { UilSearch, UilLocationPoint, UilStar } from "@iconscout/react-unicons";
+import { UilSearch, UilLocationPoint } from "@iconscout/react-unicons";
 // eslint-disable-next-line no-unused-vars
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function Inputs({ setQuery, units, setUnits }) {
   const [city, setCity] = useState("");
+
 
   const handleUnitsChange = (e) => {
     const selectedUnit = e.currentTarget.name;
@@ -35,10 +36,6 @@ function Inputs({ setQuery, units, setUnits }) {
   return (
     <div className="flex flex-row justify-center my-6">
       <div className="flex flex-row w-3/4 items-center justify-center space-x-4">
-        <UilStar
-          size={50}
-          className="text-white fill-yellow-300 stroke-yellow-300 cursor-pointer"
-        />
         <input
           value={city}
           onChange={(e) => setCity(e.currentTarget.value)}

@@ -9,7 +9,6 @@ import { useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-// import BurgerMenu from "react-burger-menu";
 
 function App() {
   const [query, setQuery] = useState({ q: "cluj-napoca" });
@@ -47,7 +46,6 @@ function App() {
       <div
         className={`rounded-xl mx-auto max-w-screen-md py-5 px-32 bg-gradient-to-b from-cyan-500 to-blue-600 h-fit drop-shadow-xl shadow-gray-400 ${formatBackground()}`}
       >
-      
         <TopButtons setQuery={setQuery} />
         <Inputs setQuery={setQuery} units={units} setUnits={setUnits} />
 
