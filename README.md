@@ -8,15 +8,9 @@
 
 ## Dependencies
 
-### `npm install -D tailwindcss`
+### `npm install`
 
-### `npm install axios`
-
-### `npm install --save luxon`
-
-### `npm install --save react-toastify`
-
-### `npm install --save @iconscout/react-unicons`
+All you have to do.
 
 ---
 
