@@ -42,7 +42,7 @@ function App() {
 
   return (
     <div
-      className={`rounded-2xl mx-auto max-w-screen-md py-5 px-32 mt-10 bg-gradient-to-b from-cyan-500 to-blue-600 drop-shadow-xl shadow-gray-600 ${formatBackground()}`}
+      className={`rounded-2xl mx-auto max-w-screen md:py-5 md:px-32 md:mt-10 bg-gradient-to-b from-cyan-500 to-blue-600 drop-shadow-xl shadow-gray-600 ${formatBackground()}`}
     >
       <TopButtons setQuery={setQuery} />
       <Inputs setQuery={setQuery} units={units} setUnits={setUnits} />
