@@ -8,6 +8,7 @@ import getFormattedWeatherData from "./services/weatherAPI";
 import { useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Favorites from "./components/Favorites";
 
 //Main App function w/ hooks
 function App() {
@@ -70,6 +71,7 @@ function App() {
     <div
       className={`mx-auto max-w-screen py-5 md:px-32 bg-gradient-to-b from-cyan-500 to-blue-600 drop-shadow-xl shadow-gray-600 ${formatBackground()}`}
     >
+      <Favorites />
       <TopButtons setQuery={setQuery} />
       <Inputs setQuery={setQuery} units={units} setUnits={setUnits} />
 
