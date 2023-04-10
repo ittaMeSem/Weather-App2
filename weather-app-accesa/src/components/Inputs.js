@@ -33,16 +33,16 @@ function Inputs({ setQuery, units, setUnits }) {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center my-6">
-      <div className="flex flex-row w-">
+    <div className="flex flex-col items-center justify-center my-6 mx-2 md:m-auto">
+      <div className="flex flex-row md:w-auto">
         <input
           value={city}
           onChange={(e) => setCity(e.currentTarget.value)}
           type="text"
           placeholder="Search"
-          className="text-xl font-light p-2 w-4/5 shadow-xl shadow:black focus:outline-none capitalize placeholder:lowercase rounded-xl"
+          className="text-xl font-light p-2 shadow-xl shadow:black focus:outline-none capitalize placeholder:lowercase rounded-xl"
         />
-        <div className="flex flex-row w-full items-center justify-center">
+        <div className="flex flex-row items-center ml-3">
           <button
             name="metric"
             className="text-xl text-white font-light transition ease-out hover:scale-125 mr-2 sm:mr-0"

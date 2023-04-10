@@ -27,18 +27,14 @@ function TemperatureAndDetails({
 }) {
   return (
     <div>
-      <div className="flex items-center justify-center py-3 text-xl text-cyan-300">
+      <div className="flex items-center justify-center py-3 text-xl md:text-2xl text-white ">
         <p>{details}</p>
       </div>
-      <div className="flex flex-row items-center justify-center text-white py-3">
-        <img
-          src={iconURLFromCode(icon)}
-          alt="weather"
-          className="w-20 md:mr-4"
-        />
+      <div className="flex flex-row md:flex-col items-center justify-center text-white py-3">
+        <img src={iconURLFromCode(icon)} alt="weather" className="w-20" />
         <div className="flex flex-col md:flex-row md:items-center space-y-2 md:space-y-0">
           <p className="text-5xl">{`${temp.toFixed()}°`}</p>
-          <div className="flex flex-col md:flex-row md:items-center md:ml-4">
+          <div className="flex flex-col md:items-center md:ml-4">
             <div className="flex font-light text-sm items-center justify-center md:mr-4">
               <UilTemperature size={18} className="mr-1" />
               Real feel:
@@ -57,7 +53,7 @@ function TemperatureAndDetails({
           </div>
         </div>
       </div>
-      <div className="flex flex-col flex-wrap items-center justify-center space-x-1 text-white text-lg py-3">
+      <div className="flex flex-col md:flex-row md:gap-10 flex-wrap items-center justify-center space-x-1 text-white text-lg py-3">
         <div className="flex flex-row">
           <UilSun />
           <p className="font-light">

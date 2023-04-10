@@ -8,11 +8,11 @@ function Forecast({ title, items }) {
         <p className="text-white font-medium uppercase">{title}</p>
       </div>
       <hr className="my-1" />
-      <div className="grid grid-cols-5 gap-3 items-center justify-center text-white">
+      <div className="grid grid-cols-5 gap-3 md:gap-8 items-center justify-center text-white">
         {items.map((item, index) => (
           <div
             key={index}
-            className="flex flex-col items-center justify-center bg-gradient-to-b from-cyan-500 to-blue-400 p-2 rounded-lg shadow-inner shadow-gray-700"
+            className="flex flex-col items-center justify-center bg-gradient-to-b p-2 rounded-lg shadow-inner shadow-gray-700"
           >
             <p className="font-light text-sm">{item.title}</p>
             <img
