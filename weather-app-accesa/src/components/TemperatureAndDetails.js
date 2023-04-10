@@ -10,6 +10,7 @@ import {
 } from "@iconscout/react-unicons";
 import { formatToLocalTime, iconURLFromCode } from "../services/weatherAPI";
 
+//Component containing various weather-related information such as humidity, wind speed, etc.
 function TemperatureAndDetails({
   weather: {
     details,
@@ -25,6 +26,8 @@ function TemperatureAndDetails({
     timezone,
   },
 }) {
+  //The component renders all this information in a visually appealing manner using HTML elements and CSS styles.
+  //It also uses utility functions to format elements such as temperature, sunrise and sunset times according to the user's timezone
   return (
     <div>
       <div className="flex items-center justify-center py-3 text-xl md:text-2xl text-white ">

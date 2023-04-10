@@ -9,11 +9,13 @@ import { useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+//Main App function w/ states
 function App() {
   const [query, setQuery] = useState({ q: "cluj-napoca" });
   const [units, setUnits] = useState("metric");
   const [weather, setWeather] = useState(null);
 
+  //Fetch weather data, display annotations using toast library, update the component's state, calls fetchWeather whenever values change
   useEffect(() => {
     const fetchWeather = async () => {
       const message = query.q ? query.q : "current location";
@@ -31,6 +33,7 @@ function App() {
     fetchWeather();
   }, [query, units]);
 
+  //A function that changes the background depending on the location's temperature using a threshold
   const formatBackground = () => {
     if (!weather) return "bg-gradient-to-b from-cyan-600 to-blue-400";
     const threshold = units === "metric" ? 20 : 60;
@@ -40,6 +43,7 @@ function App() {
     return "bg-gradient-to-b from-yellow-600 to-orange-600";
   };
 
+  //Rendered app
   return (
     <div
       className={`mx-auto max-w-screen py-5 md:px-32 bg-gradient-to-b from-cyan-500 to-blue-600 drop-shadow-xl shadow-gray-600 ${formatBackground()}`}

@@ -1,10 +1,10 @@
 import { DateTime } from "luxon";
 
+//API key and url
 const API_KEY = "f89c61f63cb80999c3446319f81cd246";
 const API_URL = "https://api.openweathermap.org/data/2.5";
 
-//https://api.openweathermap.org/data/3.0/onecall?lat={lat}&lon={lon}&exclude={part}&appid=f89c61f63cb80999c3446319f81cd246
-
+//Function that constructs a URL to call the API, makes a GET request to the constructed URL and returns a promise that resolves with a JSON response from the  API
 const fetchWeatherData = (infoType, searchParams) => {
   const url = new URL(API_URL + "/" + infoType);
   url.search = new URLSearchParams({ ...searchParams, appid: API_KEY });
@@ -12,6 +12,7 @@ const fetchWeatherData = (infoType, searchParams) => {
   return fetch(url).then((res) => res.json());
 };
 
+//Extracts specific data from the API, formats them and returns an object that contains the formatted data
 const formatCurrentWeather = (data) => {
   const {
     coord: { lat, lon },
@@ -44,6 +45,7 @@ const formatCurrentWeather = (data) => {
   };
 };
 
+//Similar to the previous function, however, this function extracts daily, for the following days, and hourly data from the API
 const formatForecastWeather = (data) => {
   let { timezone, daily, hourly } = data;
   daily = daily.slice(1, 6).map((d) => {
@@ -63,6 +65,7 @@ const formatForecastWeather = (data) => {
   return { timezone, daily, hourly };
 };
 
+//The main function that fetches data from the API, formats it using the above functions and returns an object that contains formatted current and forecast weather data
 const getFormattedWeatherData = async (searchParams) => {
   const formattedCurrentWeather = await fetchWeatherData(
     "weather",
@@ -81,12 +84,14 @@ const getFormattedWeatherData = async (searchParams) => {
   return { ...formattedCurrentWeather, ...formattedForecastWeather };
 };
 
+//Function that takes in a UNIX timestamp, a timezone, and an optional format string, and uses the Luxon library to format the timestamps as a localized date/time string in the specified timezone
 const formatToLocalTime = (
   secs,
   zone,
   format = "cccc, dd LLL yyyy' | Local time: 'hh:mm a"
 ) => DateTime.fromSeconds(secs).setZone(zone).toFormat(format);
 
+//Takes icon codes and returns the URL of the corresponding weather icon image from the API
 const iconURLFromCode = (code) =>
   `http://openweathermap.org/img/wn/${code}@2x.png`;
 

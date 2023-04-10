@@ -7,15 +7,18 @@ import "react-toastify/dist/ReactToastify.css";
 function Inputs({ setQuery, units, setUnits }) {
   const [city, setCity] = useState("");
 
+  //Function that updates the unit (Metric / Imperial) system used to display temperature based on which button the user clicks
   const handleUnitsChange = (e) => {
     const selectedUnit = e.currentTarget.name;
     if (units !== selectedUnit) setUnits(selectedUnit);
   };
 
+  //Allows the parent component to update the query used to fetch weather data based on the text entered in the search field
   const handleSearchClick = () => {
     setQuery({ q: city });
   };
 
+  //Function defined to use the browser's geolocation API to get the user's current location.
   const handleLocationClick = () => {
     if (navigator.geolocation) {
       toast.info(`Fetching user's location`);

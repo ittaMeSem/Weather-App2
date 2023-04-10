@@ -1,6 +1,7 @@
 import React from "react";
 import { iconURLFromCode } from "../services/weatherAPI";
 
+//Functional component that renders the container in which the hourly and daily weather forecast is displayed
 function Forecast({ title, items }) {
   return (
     <div className="flex flex-col items-center pb-5">

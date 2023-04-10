@@ -1,5 +1,6 @@
 import React from "react";
 
+//Component that generates a series of buttons that allow the user to quickly select a city to fetch weather data for, and updates the query based on the selected city
 function TopButtons({ setQuery }) {
   const cities = [
     {

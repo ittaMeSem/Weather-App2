@@ -2,6 +2,7 @@ import React from "react";
 import { formatToLocalTime } from "../services/weatherAPI";
 import { UilStar } from "@iconscout/react-unicons";
 
+//Component that renders the specified location by the user and the corresponding local time and current weather
 function TimeAndLocation({ weather: { dt, timezone, name, country } }) {
   return (
     <div className="flex flex-col items-center justify-center my-6">
