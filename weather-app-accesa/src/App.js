@@ -9,19 +9,26 @@ import { useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-//Main App function w/ states
+//Main App function w/ hooks
 function App() {
-  const [query, setQuery] = useState({ q: "cluj-napoca" });
+  const [query, setQuery] = useState({ q: "" });
   const [units, setUnits] = useState("metric");
   const [weather, setWeather] = useState(null);
+  const [location, setLocation] = useState(null);
 
   //Fetch weather data, display annotations using toast library, update the component's state, calls fetchWeather whenever values change
   useEffect(() => {
     const fetchWeather = async () => {
+      let params = { ...query, units };
+      if (!query.q && location) {
+        params.lat = location.latitude;
+        params.lon = location.longitude;
+      }
+
       const message = query.q ? query.q : "current location";
       toast.info("Fetching weather for " + message);
 
-      await getFormattedWeatherData({ ...query, units }).then((data) => {
+      await getFormattedWeatherData(params).then((data) => {
         toast.success(
           `Successfully fetched data for ${data.name}, ${data.country}`
         );
@@ -31,7 +38,7 @@ function App() {
     };
 
     fetchWeather();
-  }, [query, units]);
+  }, [query, units, location]);
 
   //A function that changes the background depending on the location's temperature using a threshold
   const formatBackground = () => {
@@ -42,6 +49,21 @@ function App() {
 
     return "bg-gradient-to-b from-yellow-600 to-orange-600";
   };
+
+  //Gets the user's current location to be displayed on load
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        setLocation({
+          latitude: position.coords.latitude,
+          longitude: position.coords.longitude,
+        });
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }, []);
 
   //Rendered app
   return (

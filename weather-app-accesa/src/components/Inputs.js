@@ -26,7 +26,6 @@ function Inputs({ setQuery, units, setUnits }) {
         toast.success("Location fetched!");
         let lat = position.coords.latitude;
         let lon = position.coords.longitude;
-
         setQuery({
           lat,
           lon,
