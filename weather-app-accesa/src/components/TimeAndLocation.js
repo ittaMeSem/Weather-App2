@@ -8,6 +8,7 @@ function TimeAndLocation({ weather: { dt, timezone, name, country } }) {
     JSON.parse(localStorage.getItem("favorites")) || []
   );
 
+  //Function that adds to local storage the locations that the user marked as favorite
   const handleAddToFavorite = () => {
     const newFavorite = { name, country };
     setFavorites([...favorites, newFavorite]);
@@ -17,6 +18,7 @@ function TimeAndLocation({ weather: { dt, timezone, name, country } }) {
     );
   };
 
+  //Function that checks if the location searched is already added to favorites
   const isFavorited = () => {
     return favorites.some(
       (favorite) => favorite.name === name && favorite.country === country

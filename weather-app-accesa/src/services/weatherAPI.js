@@ -15,7 +15,7 @@ const fetchWeatherData = (infoType, searchParams) => {
 //Extracts specific data from the API, formats them and returns an object that contains the formatted data
 const formatCurrentWeather = (data) => {
   const {
-    coord: { lat, lon },
+    coord: { lon, lat },
     main: { temp, feels_like, temp_min, temp_max, humidity },
     name,
     dt,
@@ -27,8 +27,8 @@ const formatCurrentWeather = (data) => {
   const { main: details, icon } = weather[0];
 
   return {
-    lat,
     lon,
+    lat,
     temp,
     feels_like,
     temp_min,

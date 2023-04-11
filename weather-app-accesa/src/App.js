@@ -10,7 +10,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Favorites from "./components/Favorites";
 
-//Main App function w/ hooks
+//Main App function w/ hooks and states
 function App() {
   const [query, setQuery] = useState({ q: "" });
   const [units, setUnits] = useState("metric");
@@ -71,7 +71,7 @@ function App() {
     <div
       className={`mx-auto max-w-screen py-5 md:px-32 bg-gradient-to-b from-cyan-500 to-blue-600 drop-shadow-xl shadow-gray-600 ${formatBackground()}`}
     >
-      <Favorites />
+      <Favorites setQuery={setQuery} />
       <TopButtons setQuery={setQuery} />
       <Inputs setQuery={setQuery} units={units} setUnits={setUnits} />
 
